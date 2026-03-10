@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME PAGE</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <style>
+        #main {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: aqua;" id="main" class="title">HOME PAGE</h1>
+    <!--
+  Phan tu nay co: tag(h1) + class(.title) + id(#main) + inline style
+  Selector thang: inline-style vì có độ ưu tiên cao nhất
+  Mau hien thi: aqua
+-->
+    <h2 class="title">Gioi thieu he thong</h2>
+    <!-- h1,h2 đều dùng class là title nhưng màu sẽ khác nhau vì h1 có id nên độ ưu tiên cao hơn tag và title, 
+        h2 thì có title độ ưu tiên cao hơn tag và thứ tự link file css dẫn đến override nên ưu tiên selector viết sau-->
+    <h3 class="section">Cac khoa hoc noi bat</h3>
+    <p>HTML</p>
+    <p>CSS</p>
+    <p>Javascript</p>
+    <p>Python</p>
+</body>
+</html>

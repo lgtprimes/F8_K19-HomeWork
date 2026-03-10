@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <title>Orders page</title>
+    <style>
+        body {
+            font-size: 18px;
+        }
+        #subtitle {
+            color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: chocolate;">ORDERS PAGE</h1>
+    <h2 style="color: gold;" class="title" id="special">Danh sach don hang</h2>
+    <!-- Phần tử h2 có inline style, class, id nên inline style đc ưu tiên nhất -->
+    <p style="color: cornflowerblue;">Don hang 001</p>
+    <p style="color: cornflowerblue;">Don hang 002</p>
+    <p class="highlight">Don hang 003</p>
+    <p id="subtitle" style="color: red;" class="highlight">Don hang 004</p>
+    <!--
+  Phan tu nay co: tag(p) + class(.highlight) + id(#subtitle) + inline style
+  Selector thang: inline-style vi có độ ưu tiên cao nhất
+  Mau hien thi: red
+-->
+</body>
+</html>
