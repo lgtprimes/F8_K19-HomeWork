@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai Tap Buoi 8</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+        }
+
+        /* reset body css */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* custom css thẻ p */
+        p {
+            margin: 15px 0;
+        }
+
+        .layout {
+            background-color: #f9fafb;
+            font-size: 0;
+            height: 100vh;
+            width: 100vw;
+            /* overflow: hidden; */
+        }
+
+        /* Control panel */
+        .control-panel {
+            margin: 15px 15px 0 15px;
+            padding: 0 20px;
+            font-size: 1rem;
+            display: inline-block;
+            width: calc((100% - 70% - 30px));
+            background-color: #f5f5f5;
+            height: calc(100% - 15px);
+            vertical-align: top;
+        }
+
+        /* class chung cho các nút trong control panel */
+        .panel-btn {
+                text-align: center;
+                min-width: 55px;
+                display: inline-block;
+                background-color: #dddddd;
+                padding: 5px;
+                margin: 2px 0;
+                cursor: pointer;
+                -webkit-user-select: none;
+                user-select: none;
+        }
+
+        
+    /* LOGIC CHÍNH CỦA WEB */
+    /* 1. Background color profile */
+        .control-panel:has(#bg-light:checked) ~ .preview-area .profile-card {
+            background-color: white;
+        }
+        .control-panel:has(#bg-light:checked) label[for="bg-light"] {
+            font-weight: 700;
+        }
+
+        .control-panel:has(#bg-gray:checked) ~ .preview-area .profile-card {
+            background-color: lightgray;
+        }
+        .control-panel:has(#bg-gray:checked) label[for="bg-gray"] {
+            font-weight: 700;
+        }
+
+        .control-panel:has(#bg-yellow:checked) ~ .preview-area .profile-card {
+            background-color: lightyellow;
+        }
+        .control-panel:has(#bg-yellow:checked) label[for="bg-yellow"] {
+            font-weight: 700;
+        }
+
+        .control-panel:has(#bg-blue:checked) ~ .preview-area .profile-card {
+            background-color: lightblue;
+        }
+        .control-panel:has(#bg-blue:checked) label[for="bg-blue"] {
+            font-weight: 700;
+        }
+
+        .control-panel:has(#bg-pink:checked) ~ .preview-area .profile-card {
+            background-color: pink;
+        }
+        .control-panel:has(#bg-pink:checked) label[for="bg-pink"] {
+            font-weight: 700;
+        }
+
+        /* 2 kích thước tên */
+        .control-panel:has(#small-size:checked) ~ .preview-area .profile-name {
+            font-size: 2rem;
+        }
+        .control-panel:has(#small-size:checked) label[for="small-size"] {
+            font-weight: 700;
+        }
+
+        .control-panel:has(#medium-size:checked) ~ .preview-area .profile-name {
+            font-size: 2.2rem;
+        }
+        .control-panel:has(#medium-size:checked) label[for="medium-size"] {
+            font-weight: 700;
+        }
+
+        .control-panel:has(#large-size:checked) ~ .preview-area .profile-name {
+            font-size: 2.75rem;
+        }
+        .control-panel:has(#large-size:checked) label[for="large-size"] {
+            font-weight: 700;
+        }
+
+        /* 3. normal or uppercase */
+        .control-panel:has(#normal:checked) ~ .preview-area .profile-name {
+            text-transform: capitalize;
+        } 
+        .control-panel:has(#normal:checked) label[for="normal"] {
+            font-weight: 700;
+        }  
+
+        .control-panel:has(#uppercase:checked) ~ .preview-area .profile-name {
+            text-transform: uppercase;
+        }
+        .control-panel:has(#uppercase:checked) label[for="uppercase"] {
+            font-weight: 700;
+        }  
+
+        /* 4. Màu chữ tên */
+        .control-panel:has(#color-name-dark:checked) ~ .preview-area .profile-name {
+            color: black;
+        }
+        .control-panel:has(#color-name-dark:checked) label[for="color-name-dark"] {
+            font-weight: 700;
+        }
+
+        .control-panel:has(#color-name-blue:checked) ~ .preview-area .profile-name {
+            color: blue;
+        }
+        .control-panel:has(#color-name-blue:checked) label[for="color-name-blue"] {
+            font-weight: 700;
+        }
+
+        .control-panel:has(#color-name-green:checked) ~ .preview-area .profile-name {
+            color: green;
+        }
+        .control-panel:has(#color-name-green:checked) label[for="color-name-green"] {
+            font-weight: 700;
+        }
+
+        .control-panel:has(#color-name-red:checked) ~ .preview-area .profile-name {
+            color: red;
+        }
+        .control-panel:has(#color-name-red:checked) label[for="color-name-red"] {
+            font-weight: 700;
+        }
+
+        /* 5. căn lề hồ sơ */
+        .control-panel:has(#text-align-left:checked) ~ .preview-area .profile-card {
+            text-align: left;
+        }
+        .control-panel:has(#text-align-left:checked) label[for="text-align-left"] {
+            font-weight: 700;
+        }
+
+        .control-panel:has(#text-align-center:checked) ~ .preview-area .profile-card {
+            text-align: center;
+        }
+        .control-panel:has(#text-align-center:checked) label[for="text-align-center"] {
+            font-weight: 700;
+        }
+
+        .control-panel:has(#text-align-right:checked) ~ .preview-area .profile-card {
+            text-align: right;
+        }
+        .control-panel:has(#text-align-right:checked) label[for="text-align-right"] {
+            font-weight: 700;
+        }
+
+        /* 6. kich thuoc nghe nghiep */
+        .control-panel:has(#job-name-small:checked) ~ .preview-area .profile-job {
+            font-size: 1.1rem;
+        }
+        .control-panel:has(#job-name-small:checked) label[for="job-name-small"] {
+            font-weight: 700;
+        }
+
+        .control-panel:has(#job-name-medium:checked) ~ .preview-area .profile-job {
+            font-size: 1.3rem;
+        }
+        .control-panel:has(#job-name-medium:checked) label[for="job-name-medium"] {
+            font-weight: 700;
+        }
+
+        .control-panel:has(#job-name-large:checked) ~ .preview-area .profile-job {
+            font-size: 1.5rem;
+        }
+        .control-panel:has(#job-name-large:checked) label[for="job-name-large"] {
+            font-weight: 700;
+        }
+
+        /* 7. khoảng cách chữ nghề nghiệp : Tight - normal - wide */
+        .control-panel:has(#job-name-tight:checked) ~ .preview-area .profile-job {
+            letter-spacing: -0.03em;
+        }
+        .control-panel:has(#job-name-tight:checked) label[for="job-name-tight"] {
+            font-weight: 700;
+        }
+
+        .control-panel:has(#job-name-normal:checked) ~ .preview-area .profile-job {
+            letter-spacing: 0.02em;
+        }
+        .control-panel:has(#job-name-normal:checked) label[for="job-name-normal"] {
+            font-weight: 700;
+        }
+
+        .control-panel:has(#job-name-wide:checked) ~ .preview-area .profile-job {
+            letter-spacing: 0.18em;
+        }
+        .control-panel:has(#job-name-wide:checked) label[for="job-name-wide"] {
+            font-weight: 700;
+        }
+
+        /* 8. Kich thuoc mo ta */
+        .control-panel:has(#desc-small:checked) ~ .preview-area .profile-desc {
+            font-size: 0.9rem;
+        }
+        .control-panel:has(#desc-small:checked) label[for="desc-small"] {
+            font-weight: 700;
+        }
+        
+        .control-panel:has(#desc-medium:checked) ~ .preview-area .profile-desc {
+            font-size: 1.0125rem;
+        }
+        .control-panel:has(#desc-medium:checked) label[for="desc-medium"] {
+            font-weight: 700;
+        }
+
+        .control-panel:has(#desc-large:checked) ~ .preview-area .profile-desc {
+            font-size: 1.125rem;
+        }
+        .control-panel:has(#desc-large:checked) label[for="desc-large"] {
+            font-weight: 700;
+        }
+
+        /* 9. Gian dong mo ta */
+        .control-panel:has(#desc-spacing-tight:checked) ~ .preview-area .profile-desc {
+            line-height: 1.6rem;
+        }
+        .control-panel:has(#desc-spacing-tight:checked) label[for="desc-spacing-tight"] {
+            font-weight: 700;
+        }
+
+        .control-panel:has(#desc-spacing-normal:checked) ~ .preview-area .profile-desc {
+            line-height: 2rem;
+        }
+        .control-panel:has(#desc-spacing-normal:checked) label[for="desc-spacing-normal"] {
+            font-weight: 700;
+        }
+
+        .control-panel:has(#desc-spacing-loose:checked) ~ .preview-area .profile-desc {
+            line-height: 2.4rem;
+        }
+        .control-panel:has(#desc-spacing-loose:checked) label[for="desc-spacing-loose"] {
+            font-weight: 700;
+        }
+
+        /* 10. Màu nút liên hệ */
+        /* btn-contact là class chung khi chưa có background-color, color */
+        .btn-contact {
+            min-width: 30px;
+            display: inline-block;
+            line-height: 2.1rem;
+            padding: 0 20px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin: 10px 0;
+        }
+
+        .control-panel:has(#contact-dark:checked) ~ .preview-area .btn-contact {
+            background-color: #1a1a1a;
+            color: white;
+        }
+        .control-panel:has(#contact-dark:checked) label[for="contact-dark"] {
+            font-weight: 700;
+        }
+
+        .control-panel:has(#contact-blue:checked) ~ .preview-area .btn-contact {
+            background-color: blue;
+            color: white;
+        }
+        .control-panel:has(#contact-blue:checked) label[for="contact-dark"] {
+            font-weight: 700;
+        }
+
+        .control-panel:has(#contact-light:checked) ~ .preview-area .btn-contact {
+            background-color: #f5f5f5;
+            color: #1a1a1a;
+        }
+        .control-panel:has(#contact-light:checked) label[for="contact-light"] {
+            font-weight: 700;
+        }
+
+        /* Phần kết quả hiển thị */
+        .preview-area {
+            margin: 10px 10px 0 10px;
+            font-size: 1rem;
+            display: inline-block;
+            width: calc((100% - 30% - 20px));
+            vertical-align: top;
+            height: calc(100% - 10px);
+        }
+
+        .preview-title {
+            margin-top: 0;
+        }
+
+        .profile-card {
+            padding: 100px;
+            text-align: center;
+            height: calc(100% - 33px);
+        }
+
+        .profile-name {
+            line-height: 1.2rem;
+        }
+
+        .profile-job {
+            line-height: 1.5rem;
+        }
+
+        .skill-tag {
+            margin: 0 5px;
+            min-width: 10px;
+            display: inline-block;
+            line-height: 1.5rem;
+            padding: 0 10px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            background: #f0f0f0;
+        }
+
+        .profile-desc {
+            font-size: 0.9rem ;
+        }  
+
+        .hobby-tag {
+            font-size: 0.9rem; 
+            margin: 0 5px;      
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <div class="control-panel">
+            <p>Tùy chỉnh hồ sơ</p>
+            <p>1. Màu nền hồ sơ</p>
+            <input type="radio" name="bg-profife" id="bg-light" hidden >
+            <label class="panel-btn" for="bg-light">Light</label>
+            <input type="radio" name="bg-profife" id="bg-gray" hidden>
+            <label class="panel-btn" for="bg-gray">Gray</label>
+            <input type="radio" name="bg-profife" id="bg-yellow" hidden checked>
+            <label class="panel-btn" for="bg-yellow">Yellow</label>
+            <input type="radio" name="bg-profife" id="bg-blue" hidden>
+            <label class="panel-btn" for="bg-blue">Blue</label>
+            <input type="radio" name="bg-profife" id="bg-pink" hidden>
+            <label class="panel-btn" for="bg-pink">Pink</label>
+
+            <p>2. Kích thước tên</p>
+            <input type="radio" name="size-profile" id="small-size" hidden>
+            <label for="small-size" class="panel-btn">Small</label>
+            <input type="radio" name="size-profile" id="medium-size" checked hidden>
+            <label for="medium-size" class="panel-btn">Medium</label>
+            <input type="radio" name="size-profile" id="large-size" hidden>
+            <label for="large-size" class="panel-btn">Large</label>
+
+            <p>3. Kiểu chữ tên</p>
+            <input type="radio" name="font-type" id="normal" checked hidden>
+            <label for="normal" class="panel-btn">Normal</label>
+            <input type="radio" name="font-type" id="uppercase" hidden>
+            <label for="uppercase" class="panel-btn">Uppercase</label>
+
+            <p>4. Màu chữ tên</p>
+            <input type="radio" name="color-name" id="color-name-dark" hidden checked>
+            <label class="panel-btn" for="color-name-dark">Dark</label>
+            <input type="radio" name="color-name" id="color-name-blue" hidden>
+            <label class="panel-btn" for="color-name-blue">Blue</label>
+            <input type="radio" name="color-name" id="color-name-green" hidden>
+            <label class="panel-btn" for="color-name-green">Green</label>
+            <input type="radio" name="color-name" id="color-name-red" hidden>
+            <label class="panel-btn" for="color-name-red">Red</label>
+
+            <p>5. Căn lề hồ sơ</p>
+            <input type="radio" name="text-align" id="text-align-left" hidden>
+            <label for="text-align-left" class="panel-btn">Left</label>
+            <input type="radio" name="text-align" id="text-align-center" hidden checked>
+            <label for="text-align-center" class="panel-btn">Center</label>
+            <input type="radio" name="text-align" id="text-align-right" hidden>
+            <label for="text-align-right" class="panel-btn">Right</label>
+
+            <p>6. Kích thước nghề nghiệp</p>
+            <input type="radio" name="job-name" id="job-name-small" hidden>
+            <label for="job-name-small" class="panel-btn">Small</label>
+            <input type="radio" name="job-name" id="job-name-medium" checked hidden>
+            <label for="job-name-medium" class="panel-btn">Medium</label>
+            <input type="radio" name="job-name" id="job-name-large" hidden>
+            <label for="job-name-large" class="panel-btn">Large</label>
+
+            <p>7. Khoảng cách chữ nghề nghiệp</p>
+            <input type="radio" name="job-name-spacing" id="job-name-tight" hidden>
+            <label for="job-name-tight" class="panel-btn">Tight</label>
+            <input type="radio" name="job-name-spacing" id="job-name-normal" hidden checked>
+            <label for="job-name-normal" class="panel-btn">Normal</label>
+            <input type="radio" name="job-name-spacing" id="job-name-wide" hidden>
+            <label for="job-name-wide" class="panel-btn">Wide</label>
+
+            <p>8. Kích thước mô tả</p>
+            <input type="radio" name="desc" id="desc-small" hidden>
+            <label for="desc-small" class="panel-btn">Small</label>
+            <input type="radio" name="desc" id="desc-medium" checked hidden>
+            <label for="desc-medium" class="panel-btn">Medium</label>
+            <input type="radio" name="desc" id="desc-large" hidden>
+            <label for="desc-large" class="panel-btn">Large</label>
+
+            <p>9. Giãn dòng mô tả</p>
+            <input type="radio" name="desc-spacing" id="desc-spacing-tight" hidden>
+            <label for="desc-spacing-tight" class="panel-btn">Tight</label>
+            <input type="radio" name="desc-spacing" id="desc-spacing-normal" hidden checked>
+            <label for="desc-spacing-normal" class="panel-btn">Normal</label>
+            <input type="radio" name="desc-spacing" id="desc-spacing-loose" hidden>
+            <label for="desc-spacing-loose" class="panel-btn">Loose</label>
+
+            <p>10. Màu nút liên hệ</p>
+            <input type="radio" name="color-contact" id="contact-dark" hidden checked>
+            <label class="panel-btn" for="contact-dark">Dark</label>
+            <input type="radio" name="color-contact" id="contact-blue" hidden>
+            <label class="panel-btn" for="contact-blue">Blue</label>
+            <input type="radio" name="color-contact" id="contact-light" hidden>
+            <label class="panel-btn" for="contact-light">Light</label>
+        </div>
+        <div class="preview-area">
+            <p class="preview-title">Preview hồ sơ cá nhân</p>
+            <div class="profile-card">
+                <h1 class="profile-name">Lâm Gia Thành</h1>
+                <p class="profile-job">Frontend Developer &bull; Ho Chi Minh City</p>
+                <p class="profile-desc">Tôi là một lập trình viên Frontend với hơn 3 năm kinh nghiệm xây dựng giao diện web hiện đại, tập trung vào hiệu suất và trải nghiệm người dùng. Tôi yêu thích việc biến ý tưởng sáng tạo thành sản phẩm thực tế.</p>
+                <p class="skill-list">Kỹ năng</p>
+                <div>
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">Javascript</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Figma</span>
+                    <span class="skill-tag">Git</span>
+                </div>
+    
+                <p class="hobby-list">Sở thích</p>
+                <div>
+                    <span class="hobby-tag">Nhiếp ảnh</span>
+                    <span class="hobby-tag">Đọc sách</span>
+                    <span class="hobby-tag">Du lịch</span>
+                    <span class="hobby-tag">Cafe</span>
+                </div>
+                <div>
+                    <a href="" class="btn-contact">Liên hệ với tôi</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
