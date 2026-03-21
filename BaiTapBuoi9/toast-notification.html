@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toast notification</title>
+
+    <style>
+        /* Tự động tính toán kích thước bao gồm luôn cả padding, border */
+        * {
+            box-sizing: border-box;
+        }
+
+       /* Làm thêm css cho vui */
+        .open-btn, .toast {
+            vertical-align: middle;  /* fix lỗi Do dùng inline-block nên khi bấm zô open-btn nên nút bị đẩy xuống */
+            -webkit-user-select: none; /* ko cho select vào chữ khi bấm vào open-btn  */
+            user-select: none;
+        }
+
+        
+
+        /* MAIN CSS */
+        /* CSS cho nút mở */
+        .open-btn {
+             /* Dùng inline-block để dàn ngang giống dislay flex và nội dung ko chiếm hết width */
+            display: inline-block;
+            line-height: 41px;
+            padding: 0 20px;
+            background-color: #333333;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        
+
+        /* Khi input bị checked thì toast cùng cấp sẽ hiện lên */
+        #toast-toggle:checked ~ .toast {
+            /* Dùng inline-block để dàn ngang giống dislay flex và nội dung ko chiếm hết width */
+            display: inline-block; 
+        }
+
+        /* Hộp thông báo toast (ẩn mặc định) */
+        .toast {
+            display: none;
+
+            /* CSS cho toast đẹp*/
+            padding: 10px;
+            color: #ffffff;
+            background-color: #66c267;
+            margin: 0 10px;
+        }
+
+        /* CSS cho nút đóng */
+        .close-btn {
+             /* Dùng inline-block để dàn ngang giống dislay flex và nội dung ko chiếm hết width */
+            display: inline-block;
+            padding: 0 5px;
+            background-color: #4c914d;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <!-- Dựa vào yêu cầu: Input, label mở và div toast phải nằm cùng cấp với nhau trong HTML -->
+    <input type="checkbox" name="toast-toggle" id="toast-toggle" hidden>
+    <label class="open-btn" for="toast-toggle">Hiện thông báo</label>
+    <div class="toast">
+        <span>🎉 Lưu thành công</span>
+        <label class="close-btn" for="toast-toggle">&times;</label>
+    </div>
+
+</body>
+</html>

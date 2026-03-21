@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 1</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        p {
+            text-align: center;
+            font-weight: 700;
+        }
+
+        h1 {
+            margin: 10px 50px;
+        }
+
+        .wrapper {
+            margin: 20px 57px;
+            display: inline-block;
+        }
+
+        .square {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            border: 5px solid red;
+        }
+
+        .rectangle {
+            display: inline-block;
+            width: 150px;
+            height: 100px;
+            border: 5px solid blue;
+        }
+
+        .triangle-up {
+            width: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 100px solid #6dc978;
+        }
+
+        .triangle-down {
+            width: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-top: 100px solid #e3a031;
+        }
+
+        .triangle-left {
+            width: 0;
+            border-right: 100px solid #905cb2;
+            border-top: 50px solid transparent;
+            border-bottom: 50px solid transparent;
+        }
+
+        .triangle-right {
+            width: 0;
+            border-left: 100px solid #d48332;
+            border-top: 50px solid transparent;
+            border-bottom: 50px solid transparent;
+        }
+
+        .trapezium {
+            width: 200px;     
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 70px solid #61b99d;      
+        }
+
+        .wide-triangle {
+            width: 0;
+            border-left: 70px solid transparent;
+            border-right: 70px solid transparent;
+            border-bottom: 50px solid #3a485d;
+        }
+
+        .acute-triangle {
+            width: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 100px solid #ad4430;
+        }
+
+        .isosceles-triangle {
+            width: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 70px solid #c05c19;
+        }
+
+        .arrow-right {
+            width: 0;
+            border-top: 40px solid transparent;
+            border-right: 80px solid transparent;
+            border-left: 80px solid #529e86;
+            border-bottom:  40px solid transparent;
+        }
+
+        .arrow-left {
+            width: 0;
+            border-top: 40px solid transparent;
+            border-right: 80px solid #8348a9;
+            border-left: 80px solid transparent;
+            border-bottom:  40px solid transparent;
+        }
+
+        .ribbon {
+            width: 0;
+            border-right: 40px solid transparent;
+            border-top: 50px solid #d15841;
+            border-left: 120px solid #d15841;
+            border-bottom:  50px solid #d15841;
+        }
+
+        /* Chữ F8 CSS*/
+        .width-f8 {
+            display: inline-block;
+            width: 110px;
+            height: 165px;
+            background-color: #d15841;
+            margin: 0 10px;
+        }
+
+        .f-margin-one {
+            width: 80px;
+            height: 40px;
+            margin-left: 30px;
+            margin-top: 30px;
+            background-color: #fff;
+        }
+
+        .f-margin-two {
+            width: 80px;
+            height: 70px;
+            margin-left: 30px;
+            margin-top: 25px;
+            background-color: #fff;
+        }
+
+        .eight-margin-one {
+            width: 60px;
+            height: 40px;
+            background-color: #fff;
+            margin-left: 25px;
+            margin-top: 30px;
+        }
+
+        .eight-margin-two {
+            width: 60px;
+            height: 40px;
+            background-color: #fff;
+            margin-left: 25px;
+            margin-top: 25px;
+        }
+
+    </style>    
+</head>
+<body>
+    <h1>Các hình có thể tạo được với Border</h1>
+    <div class="wrapper">
+        <div class="square"></div>
+        <p>1. Hình vuông</p>
+    </div>
+
+    <div class="wrapper">
+        <div class="rectangle"></div>
+        <p>2. Hình chữ nhật</p>
+    </div>
+
+    <div class="wrapper">
+        <div class="triangle-up"></div>
+        <p>3. Hình tam giác lên</p>
+    </div>
+
+    <div class="wrapper">
+        <div class="triangle-down"></div>
+        <p>4. Hình tam giác xuống</p>
+    </div>
+
+    <div class="wrapper">
+        <div class="triangle-left"></div>
+        <p>5. Hình tam giác trái</p>
+    </div>
+
+    <div class="wrapper">
+        <div class="triangle-right"></div>
+        <p>6. Hình tam giác phải</p>
+    </div>
+
+    <div class="wrapper">
+        <div class="trapezium"></div>
+        <p>7. Hình thang</p>
+    </div>
+
+    <div class="wrapper">
+        <div class="wide-triangle"></div>
+        <p>8. Tam giác rộng</p>
+    </div>
+
+    <div class="wrapper">
+        <div class="acute-triangle"></div>
+        <p>9. Tam giác nhọn</p>
+    </div>
+
+    <div class="wrapper">
+        <div class="isosceles-triangle"></div>
+        <p>10. Tam giác cân</p>
+    </div>
+
+    <div class="wrapper">
+        <div class="arrow-right"></div>
+        <p>11. Mũi tên phải</p>
+    </div>
+
+    <div class="wrapper">
+        <div class="arrow-left"></div>
+        <p>12. Mũi tên trái</p>
+    </div>
+
+    <div class="wrapper">
+        <div class="ribbon"></div>
+        <p>13. Ribbon/Lá cờ</p>
+    </div>
+
+    <div class="wrapper">
+        <div class="f8-character">
+            <div class="width-f8 f-char">
+                <div class="f-margin-one"></div>
+                <div class="f-margin-two"></div>
+            </div>
+            <div class="width-f8 eight-number">
+                <div class="eight-margin-one"></div>
+                <div class="eight-margin-two"></div>
+            </div>
+        </div>
+        <p>14. F8</p>
+    </div>  
+</body>
+</html>
