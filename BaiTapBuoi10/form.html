@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai Tap 3</title>
+    <link rel="stylesheet" href="./css/form.css">
+</head>
+<body>
+    <div class="wrapper">
+        <input type="checkbox" id="modal-toggle" hidden>
+        <label for="modal-toggle" class="btn-consult">Tư vấn ngay</label>
+
+        <div class="modal">
+            <h2>Đăng ký tư vấn</h2>
+            <p class="desc">Điền thông tin để được tư vấn lộ trình phù hợp</p>
+
+            <form action="https://api-gateway.fullstack.edu.vn/action_page.php" method="POST">
+                <div class="form-group">
+                    <label for="username">Họ và tên
+                        <span class="required-star">*</span>
+                    </label> <br>
+                    <input type="text" name="username" id="username" placeholder="Nguyễn Văn A" required>
+                    <div class="tooltip">
+                        Nhập họ và tên đầy đủ của bạn
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="phone-number">Số điện thoại
+                        <span class="required-star">*</span>
+                    </label> <br>
+                    <input type="tel" name="phone-number" id="phone-number" placeholder="0912345678" required>
+                    <div class="tooltip">
+                        Số điện thoại để chúng tôi liên hệ tư vấn
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label> <br>
+                    <input type="email" name="email" id="email" placeholder="example@gmail.com">
+                    <div class="tooltip">
+                        Email nhận thông tin khóa học (không bắt buộc)
+                    </div>
+                </div>
+                <div>
+                    <p class="title-input">Khóa học quan tâm <span class="required-star">*</span></p>
+                    <div class="form-group">
+                        <input id="htmlcss" type="checkbox" name="course-item[]" value="HTML&CSS" required>
+                        <label for="htmlcss">HTML & CSS</label>
+                        <div class="tooltip">
+                            Khóa nền tảng xây dựng giao diện web
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input id="javascript" type="checkbox" name="course-item[]" value="javascript">
+                        <label for="javascript">Javascript</label>
+                        <div class="tooltip">
+                            Ngôn ngữ lập trình cho web động
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input id="frontend" type="checkbox" name="course-item[]" value="frontend">
+                        <label for="frontend">Front-end lộ trình</label>
+                        <div class="tooltip">
+                            Lộ trình hoàn chỉnh trở thành Front-end Developer
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input id="reactjs" type="checkbox" name="course-item[]" value="reactjs">
+                        <label for="reactjs">Reactjs</label>
+                        <div class="tooltip">
+                            Thư viện JavaScript phổ biến nhất hiện nay
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input id="need-contact" type="checkbox" name="course-item[]" value="need-contact">
+                        <label for="need-contact">Chưa rõ - cần tư vấn</label>
+                        <div class="tooltip">
+                            Chúng tôi sẽ tư vấn lộ trình phù hợp với bạn
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn">Đăng ký tư vấn ngay</button>
+            </form>
+            <label class="cancel-btn" for="modal-toggle">&times;</label>
+        </div>
+        <label for="modal-toggle" class="overlay"></label>
+    </div>
+</body>
+</html>
