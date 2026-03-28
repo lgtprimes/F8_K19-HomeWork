@@ -1,0 +1,134 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    margin: 50px 0 10px 0;
+}
+
+/* Container chung */
+.container {
+    display: flex;
+    width: 600px;
+    height: 200px;
+    border: 5px solid #b83f47;
+}
+
+/* Box CSS */
+.box-1, .box-2, .box-3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background-color: #5980b1;
+    color: #ffffff;
+}
+
+/* Container 1 */
+.container-1 {
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Container 2 */
+.container-2 {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Container 3 */
+.container-3 {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-3 .box-1 {
+    margin-bottom: 20px;
+}
+.container-3 .box-2 {
+    margin-bottom: 50px;
+}
+
+/* Container 4 */
+.container-4 {
+    justify-content: center;
+    align-items: center;
+}
+
+.container-4 .box-1 {
+    margin-right: 10px;
+}
+.container-4 .box-2 {
+    margin-right: 40px;
+}
+/* Container 5 */
+.container-5 {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container 6 */
+.container-6 {
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.container-6 .box {
+    margin-top: 10px;
+}
+
+/* Container 7 */
+.container-7 {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-7 .box-1 {
+    margin-bottom: 60px;
+}
+.container-7 .box-2 {
+    margin-bottom: 20px;
+}
+/* Container 8 */
+.container-8 {
+    align-items: center;
+}
+
+.container-8 .box-2 {
+    margin: 0 auto;
+}
+
+/* Container 9 */
+.container-9 {
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.container-9 .box-1 {
+    margin-top: -70px;
+}
+.container-9 .box-3 {
+    margin-top: 70px;
+}
+
+/* Container 10 */
+.container-10 .box-1 {
+    margin-right: auto;
+}
+.container-10 .box-2 {
+    margin: auto;
+}
+
+.container-10 .box-3 {
+    margin-left: auto;
+    margin-top: auto;
+}
+
+
