@@ -1,0 +1,264 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: "Roboto", sans-serif;
+    font-size: 62.5%;
+}
+
+body {
+    background-color: #f8f9fa;
+    font-size: 1.6rem;
+    color: #95a5a6;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 60px;
+    padding: 0 20px;
+
+}
+
+.header {
+    text-align: center;    
+}
+
+.header h1 {
+    font-size: 3.6rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.header p {
+    font-size: 1.5rem;
+    color: #7f8c8d;
+}
+
+.card-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin: 30px 0;
+}
+
+.card-item {
+    width: 350px;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    transition: box-shadow linear 0.2s;
+    overflow: hidden;
+}
+
+/* Card hover */
+.card-item:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-item__header {
+    position: relative;
+}
+
+.card-item__img {
+    display: block;
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.badge {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.badge.badge-sale,
+.badge.badge-rent {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    margin: 0 5px;
+}
+
+.badge-sale {
+    background-color: #e74c3c;
+}
+.badge-rent {
+    background-color: #e67e22;
+}
+
+.badge.badge-house {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #34495e;
+}
+
+.badge.badge-price {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 8px 20px;
+    background-color: #16a085;
+    font-size: 1.4rem;
+    transition: box-shadow linear 0.2s
+}
+
+/* Badge Hover*/
+.badge.badge-price:hover {
+    box-shadow: 0 4px 12px rgba(22, 160, 133, 0.4);
+    cursor: pointer;
+}
+
+.icon-flash {
+    position: absolute;
+    top: 7px;
+    left: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    font-size: 2rem;
+    background-color: #2c3e50;
+    border-radius: 50%;
+    color: #ffffff;
+}
+
+/* class chung */
+.btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+    color: #95a5a6;
+    cursor: pointer;
+}
+
+.btn.btn-share {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.btn.btn-share:hover {
+    background-color: #3498db;
+    color: #ffffff;
+
+}
+
+.btn.btn-favorite {
+    position: absolute;
+    bottom: 10px;
+    right: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    transition: background-color linear 0.2s, color linear 0.2s;
+}
+
+/* BUTTON HOVER */
+.btn.btn-favorite:hover .heart-off,
+.btn.btn-favorite .heart-on {
+    display: none;
+}
+
+.btn.btn-favorite:hover {
+    background-color: #e74c3c;
+}
+
+.btn.btn-favorite:hover .heart-on {
+    display: block;
+    color: #ffffff;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Body Card */
+.card-item__body {
+    padding: 20px;
+}
+
+.card-address {
+    font-size: 1.2rem;
+}
+
+.card-heading {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 10px 0;
+}
+
+.user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-detail {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.user-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    background-color: #bdc3c7;
+    color: #ffffff;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+.username {
+    font-size: 12px;
+    color: #7f8c8d;
+}
+
+.posting-time {
+    font-size: 1.2rem;
+}
+
+/* FOOTER CSS */
+.info-detail {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #ecf0f1;
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+.info-detail .acreage {
+    margin-right: 30px;
+}
+
+.info-detail .bedroom-quantity {
+    margin-right: 10px;
+}
