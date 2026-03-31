@@ -32,9 +32,10 @@ body {
     font-weight: 700;
     color: #2c3e50;
 }
-
+.header h2,
 .header p {
     font-size: 1.5rem;
+    font-weight: normal;
     color: #7f8c8d;
 }
 
@@ -153,6 +154,7 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 2rem;
+    transition: background-color linear 0.2s, color linear 0.2s;
 }
 
 .btn.btn-share:hover {
@@ -187,23 +189,17 @@ body {
     color: #ffffff;
 }
 
-
-
-
-
-
-
-
-
-
-
 /* Body Card */
 .card-item__body {
-    padding: 20px;
+    padding: 18px;
 }
 
 .card-address {
     font-size: 1.2rem;
+}
+
+.card-address span {
+    margin-left: 5px;
 }
 
 .card-heading {
@@ -217,6 +213,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 18px 0;
 }
 
 .user-detail {
@@ -246,12 +243,16 @@ body {
     font-size: 1.2rem;
 }
 
+.posting-time .calendar-time {
+    margin-left: 7px;
+}
+
 /* FOOTER CSS */
 .info-detail {
     display: flex;
     align-items: center;
     border-top: 1px solid #ecf0f1;
-    padding: 10px;
+    padding-top: 10px;
     font-size: 1.2rem;
 }
 
