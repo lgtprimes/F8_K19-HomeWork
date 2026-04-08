@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
+    <title>Responsive Card Layout</title>
+</head>
+<body>
+    <input type="checkbox" id="menu-toggle" hidden>
+    <header class="header">
+        <div class="header__logo">My Website</div>
+        <label for="menu-toggle" class="header__hamburger mdi mdi-menu"></label>
+        <nav class="header__nav">
+            <label for="menu-toggle" class="nav__close-btn mdi mdi-close"></label>
+            <ul class="nav__list">
+                <li class="nav__item"><a class="nav__link" href="#">Link 1</a></li>
+                <li class="nav__item"><a class="nav__link" href="#">Link 2</a></li>
+                <li class="nav__item"><a class="nav__link" href="#">Link 3</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <div class="container__content">
+            <h1 class="container__heading">This is the main heading</h1>
+            <p class="container__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium eveniet eligendi doloremque numquam aliquid iure nihil id ab. Nostrum, accusantium.</p>
+            <p class="container__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, ea at sunt quam et necessitatibus aut voluptatum, aliquid eligendi delectus nisi atque, quos deserunt. Eos perferendis nisi, exercitationem repudiandae rem laborum ipsum expedita repellendus ipsa cupiditate, dignissimos aut eius ratione!</p>
+            <div class="cards">
+                <div class="card">
+                    <div class="card__header">Card One</div>
+                    <div class="card__body">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur vero voluptas sint reprehenderit.</div>
+                </div>
+                <div class="card">
+                    <div class="card__header">Card Two</div>
+                    <div class="card__body">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur vero voluptas sint reprehenderit ratione sapiente nisi modi, animi temporibus quisquam.</div>
+                </div>
+                <div class="card">
+                    <div class="card__header">Card Three</div>
+                    <div class="card__body">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur vero voluptas sint reprehenderit ratione sapiente nisi modi, animi temporibus quisquam.</div>
+                </div>
+                <div class="card">
+                    <div class="card__header">Card Four</div>
+                    <div class="card__body">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur vero voluptas sint reprehenderit ratione sapiente nisi modi, animi temporibus quisquam.</div>
+                </div>
+                <div class="card">
+                    <div class="card__header">Card Five</div>
+                    <div class="card__body">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur vero voluptas sint reprehenderit ratione sapiente nisi modi, animi temporibus quisquam.</div>
+                </div>
+            </div>
+        </div>
+        <div class="container__sidebar">Have you discovered all of the other excellent content on this website?</div>
+    </main>
+    <label for="menu-toggle" class="overlay"></label>
+</body>
+</html>
