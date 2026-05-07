@@ -31,9 +31,9 @@ console.log(getElectricityBill(120));
 
 // Bài 3
 function cleanName(name, keyword) {
-    let cleanName = name.trim().toLowerCase()    
+    let cleandName = name.trim().toLowerCase();
     let cleanKeyword = keyword.toLowerCase();
-    return cleanName.includes(cleanKeyword);
+    return cleandName.includes(cleanKeyword);
 }
 
 console.log(cleanName('   NGUYEN Van An   ', 'an')); // Mong đợi: true (vì 'nguyen van an' có chứa 'an')
