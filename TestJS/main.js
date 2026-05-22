@@ -6,27 +6,26 @@ const employees = [
    { id: 10, name: "Eve", age: 20, status: 'working' },
 ];
 
-// Hash Join "employees" Object
-const employeesById = {};
-for(let i = 0; i < employees.length; i++) {
-    const employee = employees[i];
-    employeesById[employee.id] = employee;
-}
-
 const products = [
    { id: 1, name: "Phone", price: 1200 },
    { id: 2, name: "Laptop", price: 3000  },
    { id: 3, name: "Tab", price: 2000  },
    { id: 4, name: "PC", price: 800  },
    { id: 5, name: "Monitor", price: 1500  },
-]
+];
 
-// Hash Join "products" Object
-const productsById = {};
-for(let i = 0; i < products.length; i++) {
-    const product = products[i];
-    productsById[product.id] = product;
+function toHashMap(array, getKey) {
+    const result = {};
+    for(const element of array) {
+        result[getKey(element)] = element;
+    }
+    return result;
 }
+
+const employeesById = toHashMap(employees, e => e.id);
+const productsById = toHashMap(products, p => p.id);
+
+
 
 const orders = [
    { id: 1, employeeId: 1, productId: 4, quantity: 1 },
@@ -38,11 +37,12 @@ const orders = [
    { id: 7, employeeId: 10, productId: 3, quantity: 2 },
 ];
 
-// 1. Filter working employees
+// 1. Get all working employees
 const getWorkingEmployees = (employees) => {
     return employees.filter((employee) => employee.status === 'working');
 }
 // console.log(getWorkingEmployees(employees)); 
+
 
 // 2. Find oldest employee
 function findOldestEmployee(employees) {
@@ -59,6 +59,7 @@ function findOldestEmployee(employees) {
 }
 // console.log(findOldestEmployee(employees));
 
+
 // 3. Find cheapest product
 function findCheapestProduct(products) {
     if (!products.length) return null;
@@ -74,116 +75,177 @@ function findCheapestProduct(products) {
 }
 // console.log(findCheapestProduct(products));  
 
+
 // 4. Find best selling product
-function findBestSellingProduct(orders, productsById) {
-    if (!orders.length) return null;
+function findTheBestSellingProduct(orders, productsById) {
+    let bestSellingProduct = -Infinity;
+    let bestSellingProductId = null;
     const salesCount = {};
     for(const order of orders) {
-        if(!salesCount[order.productId]) {
-            salesCount[order.productId] = 0;
+        const { productId, quantity } = order;
+        if(!salesCount[productId]) {
+            salesCount[productId] = 0;
         }
-        salesCount[order.productId] += order.quantity;
-    }
-    
-    let bestProductId = null;
-    let maxQuantity = 0;
-    for(const productId in salesCount) {
-        if(salesCount[productId] > maxQuantity) {
-            maxQuantity = salesCount[productId];
-            bestProductId = productId;
+        salesCount[productId] += quantity;
+
+        if(salesCount[productId] > bestSellingProduct) {
+            bestSellingProduct = salesCount[productId];
+            bestSellingProductId = productId;
         }
     }
     
-    return productsById[bestProductId];
+    return productsById[bestSellingProductId];
 }
+// console.log(findTheBestSellingProduct(orders, productsById));
 
-// 5. console.log(findBestSellingProduct(orders, productsById));
 
-function findMaxRevenueProduct(orders, productsById) {
-    if (!orders.length) return null;
-    const revenueByProduct = {};
+// 5. Find the product with the highest revenue
+function findTheBestRevenueProduct(orders, productsById) {
+    const revenueByProductId = {};
+    let maxRevenue = -Infinity;
+    let maxRevenueId = null;
 
     for(const order of orders) {
-        const product = productsById[order.productId];
-        const revenue = product.price * order.quantity;
-        
-        if(!revenueByProduct[order.productId]) {
-            revenueByProduct[order.productId] = 0;
+        const { productId, quantity } = order;
+        const product = productsById[productId];
+        const revenue = product.price * quantity;
+
+        if(!revenueByProductId[productId]) {
+            revenueByProductId[productId] = 0;
         }
+        revenueByProductId[productId] += revenue;
 
-        revenueByProduct[order.productId] += revenue;
-        
-    }
-    
-    let bestProductId = null;
-    let maxRevenue = 0;
-
-    for(const productId in revenueByProduct) {
-        if(revenueByProduct[productId] > maxRevenue) {
-            maxRevenue = revenueByProduct[productId];
-            bestProductId = productId;
+        if(revenueByProductId[productId] > maxRevenue) {
+            maxRevenue = revenueByProductId[productId];
+            maxRevenueId = productId;
         }
     }
-
-    return productsById[bestProductId];
-
+    return productsById[maxRevenueId];
 }
-// console.log(findMaxRevenueProduct(orders, productsById));
+// console.log(findTheBestRevenueProduct(orders, productsById));
 
-// 6. find top seller
-function findTopSeller(orders, employeesById) {
-    if (!orders.length) return null;
-    const salesByEmployee = {};
 
-    for(const order of orders) {
-        if(!salesByEmployee[order.employeeId]) {
-            salesByEmployee[order.employeeId] = 0;
-        }
-        salesByEmployee[order.employeeId] += order.quantity;
-    }
-    
-    let bestEmployeeId = null;
-    let maxSales = 0;
-
-    for(const employeeId in salesByEmployee) {
-        if(salesByEmployee[employeeId] > maxSales) {
-            maxSales = salesByEmployee[employeeId];
-            bestEmployeeId = employeeId;
-        }
-    }
-
-    return employeesById[bestEmployeeId];
-
-}
-
-// console.log(findTopSeller(orders, employeesById));
-
-// 7. Find the employee with the highest revenue
-function findTopRevenueEmployee(orders, employeesById, productsById) {
-    if (!orders.length) return null;
-    const revenueByEmployee = {};
-
-    for(const order of orders) {
-        const product = productsById[order.productId];
-        const revenue = product.price * order.quantity;
-
-        if(!revenueByEmployee[order.employeeId]) {
-            revenueByEmployee[order.employeeId] = 0;
-        }
-        revenueByEmployee[order.employeeId] += revenue;
-    }
-
+// 6. Find the top-selling employee
+function findTopSellingEmployee(orders, employeesById) {
+    const quantityByEmployeeId = {}
+    let maxQuantity = -Infinity;
     let topEmployeeId = null;
-    let maxRevenue = 0;
 
-    for (const employeeId in revenueByEmployee) {
-        if (revenueByEmployee[employeeId] > maxRevenue) {
-            maxRevenue = revenueByEmployee[employeeId];
+    for(const order of orders) {
+        const { employeeId, quantity } = order;
+        if(!quantityByEmployeeId[employeeId]) {
+            quantityByEmployeeId[employeeId] = 0;
+        }
+        quantityByEmployeeId[employeeId] += quantity;
+
+        if(quantityByEmployeeId[employeeId] > maxQuantity) {
+            maxQuantity = quantityByEmployeeId[employeeId];
             topEmployeeId = employeeId;
         }
-    }
 
+    }    
     return employeesById[topEmployeeId];
 }
+// console.log(findTopSellingEmployee(orders, employeesById));
 
-console.log(findTopRevenueEmployee(orders, employeesById, productsById));
+
+// 7. Find the employee with the highest revenue
+function findTopRevenueEmployee(orders, productsById, employeesById) {
+    const revenueByEmployeeId = {}
+    let maxRevenue = -Infinity;
+    let topEmployeeId = null;
+
+    for(const order of orders) {
+        const { productId, employeeId, quantity } = order;
+        const product = productsById[productId];
+        const revenue = product.price * quantity;
+        if(!revenueByEmployeeId[employeeId]) {
+            revenueByEmployeeId[employeeId] = 0;
+        }
+        revenueByEmployeeId[employeeId] += revenue;
+
+        if(revenueByEmployeeId[employeeId] > maxRevenue) {
+            maxRevenue = revenueByEmployeeId[employeeId];
+            topEmployeeId = employeeId;
+        }
+
+    }    
+    return employeesById[topEmployeeId];
+}
+// console.log(findTopRevenueEmployee(orders, productsById, employeesById));
+
+
+// 8. Find the highest-revenue product for each employee
+function findTopRevenueProductPerEmployee(orders, productsById) {
+    const employeeStats = {};
+    for(const order of orders) {
+        const { employeeId, productId, quantity } = order;
+        const revenue = productsById[productId].price * quantity;
+
+        if(!employeeStats[employeeId]) {
+            employeeStats[employeeId] = {
+                revenues: {},
+                maxRevenue: -Infinity,
+                bestProductId: null,
+            }
+        }
+
+        const employeeData = employeeStats[employeeId];
+        
+        if(!employeeData.revenues[productId]) {
+            employeeData.revenues[productId] = 0;
+        }
+        employeeData.revenues[productId] += revenue;
+
+        if(employeeData.revenues[productId] > employeeData.maxRevenue) {
+            employeeData.maxRevenue = employeeData.revenues[productId];
+            employeeData.bestProductId = productId;
+        }
+    }
+    
+    const result = {};
+    for(const employeeId in employeeStats) {
+        result[employeeId] = productsById[employeeStats[employeeId].bestProductId];
+    }
+    return result;
+}
+// console.log(findTopRevenueProductPerEmployee(orders, productsById));
+
+
+// 9. Calculate commission for each employee
+function calculateCommissionPerEmployee(orders, productsById) {
+    const commissionByEmployeeId = {};
+    const commission = 0.03;
+    for(const order of orders) {
+        const { employeeId, productId, quantity } = order;
+        const revenue = productsById[productId].price * quantity;
+
+        if(!commissionByEmployeeId[employeeId]) {
+            commissionByEmployeeId[employeeId] = 0;
+        }
+
+        commissionByEmployeeId[employeeId] += revenue * commission;
+    }
+    
+    return commissionByEmployeeId;
+}
+// console.log(calculateCommissionPerEmployee(orders, productsById));
+
+
+// 10. Sort employees by revenue in descending order
+function sortEmployeesByRevenueDesc(orders, productsById) {
+    const revenueByEmployeeId = {};
+    for(const order of orders) {
+        const { employeeId, productId, quantity } = order;
+        const revenue = productsById[productId].price * quantity;
+
+        if(!revenueByEmployeeId[employeeId]) {
+            revenueByEmployeeId[employeeId] = 0;
+        }
+
+        revenueByEmployeeId[employeeId] += revenue;
+    }
+    return Object.entries(revenueByEmployeeId).sort((a, b) =>b[1] - a[1]);
+     
+}
+// console.log(sortEmployeesByRevenueDesc(orders, productsById));
