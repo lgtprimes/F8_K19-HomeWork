@@ -50,7 +50,7 @@ const itemsHTML = invoiceData.items.map(item => {
             <td>${item.name}</td>
             <td>${item.size}</td>
             <td>${item.quantity}</td>
-            <td>${item.price}</td>
+            <td>${item.price.toLocaleString()}đ</td>
             <td class="table__price">${(item.price * item.quantity).toLocaleString()}đ</td>
         </tr>
     `;
