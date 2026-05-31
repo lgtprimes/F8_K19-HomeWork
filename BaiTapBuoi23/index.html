@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+    <title>Bài tập buổi 23</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header__logo">
+            <a href="">
+                <i class="fa-solid fa-cart-shopping"></i>FakeStore
+            </a>
+        </div>
+        <div class="search-bar">
+            <label for="search-input">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </label>
+            <input title="search" placeholder="Tìm kiếm sản phẩm..." type="search" id="search-input">
+        </div>
+        <div class="cart-shop">
+            <a class="cart-shop-btn" title="move to product-list" type="button">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-count" class="cart__quantity">0</span>
+            </a>
+        </div>
+    </header>
+    <div class="container">
+        <div class="inner">
+            <div class="category">
+                <div class="category__filter">
+                    <i class="filter-icon fa-solid fa-filter"></i>
+                    <span>Danh mục</span>
+                </div>
+                <ul class="category__list"></ul>
+            </div>
+            <div class="product__container">
+                <div class="product__heading">
+                    <h2>Tất cả sản phẩm</h2>
+                    <p class="products__quantity"></p>
+                </div>
+                <div id="product-list" class="product-list"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="main.js"></script>
+</body>
+</html>
