@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Customer Management Dashboard</title>
+</head>
+<body>
+<nav class="navbar">
+    <div class="navbar-brand">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary)"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            <span>System</span>
+    </div>
+</nav>
+
+<main class="main-container">
+    <div class="panel">
+
+        <div class="panel-header">
+            <h2 class="panel-title">Customers</h2>
+            <div class="toolbar">
+                <div class="search-wrapper">
+                    <span class="search-icon">⚲</span>
+                    <input type="text" class="search-input" placeholder="Search customers...">
+                </div>
+                <!-- Nút mở Popup -->
+                <label for="popup-toggle" id="btn-create" class="btn btn-add">
+                    <span>+</span> Add New
+                </label>
+            </div>
+        </div>
+
+        <div class="panel-body"></div>
+
+<!--        <div class="table-container">-->
+<!--            <table>-->
+<!--                <thead></thead>-->
+<!--                <tbody></tbody>-->
+<!--            </table>-->
+<!--        </div>-->
+
+    </div>
+</main>
+
+
+<script src="./main.js" type="module"></script>
+
+</body>
+</html>
