@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="wrapper-box">
+                <div class="box1">
+                    <div class="img-box-1">
+                        <a class="btn backBtn">Back to website
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="box2">
+                    <h1 class="title-form">Login</h1>
+                    <p class="subtitle">Don't have an account? <a href="">Register</a></p>
+                    <form class="register-form" action="">
+                        <input type="text" placeholder="Username" name="username" value="emilys">
+                        <div class="passwordForm">
+                            <input type="password" placeholder="Enter your password" autocomplete="off" name="password" value="emilyspass">
+                            <i class="visiblePasswordIcon fa-regular fa-eye"></i>
+                        </div>
+                        <div class="agreeCondition">
+                            <input title="agreeCondition" id="agree" type="checkbox" >
+                            <label for="agree">I agree to the <a href="">Terms & Conditions</a></label>
+                        </div>
+                        <button id="login-btn" class="btn registerBtn" type="submit">Login account</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./index.js"></script>
+</body>
+</html>
