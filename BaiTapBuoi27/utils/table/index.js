@@ -23,9 +23,9 @@ const renderTable = (headers, rows, className = null) => {
         const tr = document.createElement('tr')
         tr.dataset.id = row.id;
         for (const header of headers) {
-        const td = document.createElement('td')
-        td.innerText = row[header.key]
-        tr.append(td)
+            const td = document.createElement('td')
+            td.innerText = row[header.key]
+            tr.append(td)
         }
 
         const action = document.createElement('td')
