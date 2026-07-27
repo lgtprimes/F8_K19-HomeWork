@@ -1,0 +1,257 @@
+
+.swipperSlide {
+    flex: 0;
+    width: calc((100% / 4) - 20px );
+}
+
+.productCard {
+    box-shadow: 0 4px 6px rgb(225, 225, 225);
+    border-radius: 15px;
+
+}
+
+.productHeader {
+    position: relative;
+    display: block;
+    padding: 10px 10px 0 10px;
+    text-decoration: none;
+    height: 100%;
+}
+
+.productImgWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 198.55px;
+    height: 198.55px;
+
+}
+
+.productImg {
+    width: 169.29px;
+    height: 169.29px;
+    object-fit: cover;
+    text-align: center;
+    transition: transform linear .2s;
+}
+
+
+.productImg:hover {
+    transform: scale(1.1);
+}
+
+.productInfo {
+    padding: 27px 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.productName {
+    color: #18181B;
+    font-size: 14px;
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+
+.productPreOrder {
+    display: inline-flex;
+    align-items: center;
+    color: #832B19;
+    background-color: #ffe6e1;
+    font-size: 12px;
+    border-radius: 5px;
+    padding: 4px 8px;
+    margin-bottom: 4px;
+    height: 24px;
+}
+
+.ProductPrice {
+    display: flex;
+    align-items: center;
+    color: #c40016;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 4px;
+    height: 24px;
+}
+
+.productMemberShip {
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    color: #1E478A;
+    background-color: #DBE8FE;
+    margin-bottom: 4px;
+    padding: 2px 4px;
+    border-radius: 4px;
+    height: 19px;
+}
+
+.productInstallment {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    line-clamp: 2;
+    color: #18181B;
+    background-color: #f2f2f3;
+    padding: 4px;
+    border-radius: 4px;
+    height: 40px;
+}
+
+
+.labelDiscount {
+    position: absolute;
+    top: -7px;
+    left: 15px;
+    display: inline-block;
+    background-color: #d80019;
+    padding: 1px 8px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.labelDiscount::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -6px;
+    display: inline-block;
+    width: 6px;
+    height: 7px;
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    background-color: #b00116;
+}
+
+.labelDiscount span {
+    font-size: 12px;
+    color: #ffffff;
+}
+
+.labelInstallment {
+    position: absolute;
+    top: 0;
+    right: -5px;
+    font-size: 12px;
+    color: #ffffff;
+}
+
+.labelInstallment::after {
+    content: "";
+    position: absolute;
+    top: 22px;
+    right: 0;
+    display: inline-block;
+    background-color: #2267d1;
+    width: 5px;
+    height: 7px;
+    clip-path: polygon(100% 0, 0 0, 0 100%);
+}
+
+.labelInstallment span {
+    display: inline-block;
+    background-color: #dae8fe;
+    color: #5996f8;
+    padding: 5px 10px;
+    font-weight: bold;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+
+.productFooter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    padding: 6px 10px 10px 10px;
+}
+
+.shipTime {
+    display: flex;
+    align-items: center;
+}
+
+.timeTitle {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    color: #ffffff;
+    height: 22px;
+    background-color: #3b82f6;
+    padding-right: 4px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.timeTitle i {
+    font-size: 10px;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 12px;
+    padding-left: 5px;
+    font-weight: bold;
+}
+
+.rating i {
+    color: #ffc400;
+}
+
+.favoriteBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: none;
+    margin-left: auto;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+
+.favoriteBtn svg {
+    font-size: 18px;
+    color: #3b82f6;
+}
+
+.favoriteBtn:hover {
+    background-color: #f7f7f8;
+}
+
+.favoriteBtn:hover svg {
+    animation: heartbeat 1s infinite;
+    color: #3b82f6;
+}
+
+.favoriteBtn:hover svg path {
+    fill: #3b82f6;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  40% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,63 @@
+.container {
+    position: relative;
+}
+
+.swipperWapper {
+    display: flex;
+    justify-content: center;
+    column-gap: 12px;
+    row-gap: 20px;
+    flex-wrap: wrap;
+}
+
+
+.btnSlide {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    border: none;
+    width: 40px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.8);
+    background: color-mix(in oklab, #ffffff 80%,transparent);
+    transition: background 0.2s ease;
+    z-index: 999;
+}
+
+.btnSlide:hover {
+    background: rgba(255, 255, 255);
+}
+
+.btnPrev {
+    top: 50%;
+    left: 34px;
+    border-radius: 0 100px 100px 0;
+    box-shadow: 3px 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.btnPrev i {
+    position: absolute;
+    left: 0;
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.btnNext {
+    top: 50%;
+    right: 34px;
+    border-radius: 100px 0 0 100px;
+    box-shadow: -3px 0px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.btnNext i {
+    position: absolute;
+    right: 0;
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+

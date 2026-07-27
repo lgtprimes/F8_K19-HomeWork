@@ -1,0 +1,11 @@
+.bannerContainer {
+  display: flex;
+  gap: 35px;
+  flex-direction: column;
+}
+
+.banner {
+  width: 224px;
+  height: 554.77px;
+  border-radius: 15px;
+}

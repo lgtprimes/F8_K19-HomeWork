@@ -1,0 +1,115 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.swiperContainer {
+    display: flex;
+    position: relative;
+}
+
+.swiperWrapper {
+    display: flex;
+    width: 840px;
+    overflow-x: auto;
+}
+
+.swiperWrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.swiperSlide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    padding: 6px 12px;
+    height: 35px;
+    border: 1px solid #e9e9eb;
+    border-radius: 20px;
+    font-weight: 400;
+    transition: background-color 0.2s ease, border-color 0.3s ease;
+    cursor: pointer;
+}
+
+.swiperSlide:hover {
+    border-color: #a3a3ac;
+    background-color: #f7f7f8;
+}
+
+.swiperSlide a {
+    text-decoration: none;
+    color: #1d1d20;
+    font-family: Arial, Helvetica, sans-serif;
+    white-space: nowrap
+}
+
+.btnSlide {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    border: none;
+    width: 25px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.8);
+    background: color-mix(in oklab, #ffffff 80%,transparent);
+    transition: background 0.2s ease;
+}
+
+.btnSlide:hover {
+    background: rgba(255, 255, 255);
+}
+
+.btnPrev {
+    top: 50%;
+    left: 0;
+    border-radius: 0 100px 100px 0;
+}
+
+.btnPrev i {
+    position: absolute;
+    left: -3px;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.btnNext {
+    top: 50%;
+    right: 0;
+    border-radius: 100px 0 0 100px;
+}
+
+.btnNext i {
+    position: absolute;
+    right: -3px;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+/* viewAll */
+
+.viewAll {
+    display: flex;
+    gap: 3px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #3b82f6;
+    padding: 6px 8px;
+    border-radius: 20px;
+    line-height: 1.5;
+    border: 1px solid #fff;
+}
+
+.viewAll:hover {
+    background-color: #f7f7f8;
+}
+
+.viewAll i {
+    font-size: 10px;
+}
