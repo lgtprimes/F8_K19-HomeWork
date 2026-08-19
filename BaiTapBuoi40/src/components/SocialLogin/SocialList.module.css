@@ -1,0 +1,16 @@
+.socialList {
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.socialListRow {
+    align-items: center;
+    display: flex;
+    gap: 12px;
+    width: 100%;
+}

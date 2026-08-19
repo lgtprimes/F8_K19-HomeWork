@@ -1,0 +1,168 @@
+/* Container chính */
+.headerContainer {
+  background-color: #213244;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  color: #ffffff;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Khối bên trái: Menu & Logo */
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.menuBtn {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.menuBtn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logoText {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: -0.5px;
+}
+
+.logoTie {
+  color: #00b14f; /* Màu xanh đặc trưng TopCV */
+}
+
+/* Khối bên phải: Nav Items & User Options */
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Các nút dạng Pill (HR Insider, Đăng tin, Tìm CV...) */
+.navPill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #2c4156;
+  color: #ffffff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.navPill:hover {
+  background-color: #38516b;
+}
+
+.navIcon {
+  font-size: 16px !important;
+  color: #ffffff;
+}
+
+/* Icon Thông báo & Giỏ hàng có Badge số */
+.iconBadgeWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: #e03c31;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: bold;
+  height: 16px;
+  min-width: 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+}
+
+.dotBadge {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: #e03c31;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Avatar User nút bấm */
+.userBtn {
+  background-color: #2c4156;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.userAvatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+
+/* Responsive CSS */
+@media (max-width: 1024px) {
+  .navText {
+    display: none; /* Thu gọn text, chỉ giữ icon trên máy tính bảng */
+  }
+  .navPill {
+    padding: 8px;
+    border-radius: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerContainer {
+    padding: 0 12px;
+  }
+  .rightSection {
+    gap: 6px;
+  }
+  /* Ẩn bớt các nút không quan trọng trên điện thoại */
+  .hideOnMobile {
+    display: none;
+  }
+}

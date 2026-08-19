@@ -1,0 +1,9 @@
+.loginBtn {
+    height: 40px;
+    padding: 0 16px;
+}
+
+.findFileBtn {
+    background-color: rgb(242 244 245);
+    border: none;
+}

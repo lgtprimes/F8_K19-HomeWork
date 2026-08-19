@@ -1,0 +1,392 @@
+.heroSection {
+    position: relative;
+    /* display: flex; */
+    /* flex-direction: column; */
+    background: linear-gradient(180deg, #002b33, rgba(0, 43, 51, .25)), linear-gradient(90deg, #008060 21.86%, #2bab60 78.13%);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    font-family: Inter, sans-serif;
+    padding-bottom: 24px;
+    padding-top: 24px;
+    height: 480px;
+}
+
+
+.heroSection::before {
+    background: url(https://static.topcv.vn/v4/image/welcome/section-header/section_header_before_bg.png);
+    background-repeat: no-repeat;
+    background-size: calc(100% + 23px);
+    content: "";
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 317px;
+    z-index: 0;
+}
+
+.heroSection::after {
+    background: url(https://static.topcv.vn/v4/image/welcome/section-header/section_header_after_bg.png);
+    background-position: 100%;
+    background-repeat: no-repeat;
+    background-size: calc(100% - 120px);
+    content: "";
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 317px;
+    z-index: 0;
+}
+
+.title {
+    color: #2fff8c;
+    font-size: 26px;
+    font-style: normal;
+    font-family: Inter;
+    font-weight: 700;
+    line-height: 32px;
+    margin: 0 auto 18px;
+    text-align: center;
+}
+
+/* Hero Content */
+.heroContent {
+    display: grid;
+}
+
+.heroSearch {
+    display: flex;
+}
+
+
+
+.formSearchJob {
+    align-items: center;
+    background: #fff;
+    border-radius: 100px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .04);
+    display: flex;
+    gap: 16px;
+    height: 60px;
+    margin-bottom: 10px;
+    padding: 8px;
+    width: 1140px;
+}
+
+.groupSearch {
+    width: 100%;
+}
+
+.itemSearch {
+    display: flex;
+    margin-left: 8px;
+
+}
+
+.controlUI {
+    background: transparent;
+    box-shadow: none;
+    color: #212f3f;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: -.16px;
+    line-height: 24px;
+    padding: 0;
+    border: none;
+    flex: 1;
+}
+
+.controlUI::placeholder {
+    color: rgb(134, 144, 150);
+    font-weight: normal;
+    font-size: 1.4rem;
+    letter-spacing: 0.125px;
+}
+
+.controlUI:focus {
+    outline: none;
+}
+
+/* Container nội dung chính - Giữ nguyên layout căn giữa */
+.heroContent {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 20px 0 32px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Tiêu đề trắng TopCV chính giữa */
+.heroTitle {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 16px 0;
+  letter-spacing: 0.2px;
+}
+
+/* 1. THANH TÌM KIẾM (SEARCH BAR) */
+.heroSearch {
+  margin-bottom: 16px;
+}
+
+.groupSearch {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 40px;
+  padding: 5px 6px 5px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.itemSearch {
+  flex: 1;
+}
+
+.controlUI {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #212529;
+  background: transparent;
+}
+
+.controlUI::placeholder {
+  color: #777;
+}
+
+.itemLocation {
+  border-left: 1px solid #e0e0e0;
+  padding: 0 16px;
+  gap: 6px;
+  min-width: 160px;
+}
+
+.locationIcon {
+  color: #666;
+  font-size: 18px !important;
+}
+
+.selectUI {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 13.5px;
+  color: #333;
+  cursor: pointer;
+  width: 100%;
+}
+
+.buttonSearchWrapper {
+  margin-left: auto;
+}
+
+.buttonSearch {
+  background-color: #00b14f;
+  color: #ffffff;
+  border: none;
+  border-radius: 30px;
+  padding: 9px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.buttonSearch:hover {
+  background-color: #009643;
+}
+
+/* 2. HERO BOTTOM (MENU KHÁM PHÁ + BANNER CAROUSEL) */
+.heroBottom {
+  display: flex;
+  gap: 16px;
+  position: relative;
+  height: 270px;
+}
+
+/* Menu bên trái */
+.menuWrapper {
+  width: 270px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  height: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.groupList {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+}
+
+.groupItem {
+    position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9.5px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #212529;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.groupItem::after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    right: -12px;
+    width: 20px;
+    height: 40px;
+    background: transparent;
+}
+
+.groupItem:hover,
+.activeGroup {
+  background-color: #f2fbf6;
+  color: #00b14f;
+  font-weight: 600;
+}
+
+.groupName {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+  line-height: 1.6rem;
+}
+
+.arrowIcon {
+  font-size: 16px !important;
+  color: #ccc;
+}
+
+.groupItem:hover .arrowIcon,
+.activeGroup .arrowIcon {
+  color: #00b14f;
+}
+
+/* Góc phân trang dưới chân Menu */
+.menuFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  border-top: 1px solid #f1f3f5;
+  font-size: 12px;
+  color: #888;
+}
+
+.navBtns {
+  display: flex;
+  gap: 6px;
+}
+
+.navCircle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 13px;
+  color: #666;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.navCircle:hover {
+  border-color: #00b14f;
+  color: #00b14f;
+}
+
+/* Flyout Mega Submenu khi hover */
+.flyoutPanel {
+  position: absolute;
+  top: 0;
+  left: 280px;
+  width: 854px;
+  height: 100%;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  z-index: 999;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.flyoutHeader {
+  border-bottom: 2px solid #e6f7ef;
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+}
+
+.flyoutTitle {
+  margin: 0;
+  font-size: 15px;
+  color: #00b14f;
+  font-weight: 700;
+}
+
+.flyoutGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.catLink {
+  text-decoration: none;
+  color: #333;
+  font-size: 13px;
+  transition: color 0.2s;
+}
+
+.catLink:hover {
+  color: #00b14f;
+  font-weight: 600;
+}
+
+.emptyFlyout {
+  color: #888;
+  font-style: italic;
+  font-size: 13px;
+}
+
+/* Banner Carousel bên phải */
+.sliderWrapper {
+  flex: 1;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.mySwiper {
+  width: 100%;
+  height: 100%;
+}
+
+.slideItem img {
+  width: 100%;
+  object-fit: cover;
+}

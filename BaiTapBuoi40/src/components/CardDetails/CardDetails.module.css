@@ -1,0 +1,379 @@
+/* Container tổng thể */
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f4f5f7;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #333;
+  box-sizing: border-box;
+}
+
+.layoutGrid {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* Cột bên trái: Chi tiết công việc */
+.leftColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+/* Cột bên phải: Thông tin công ty & thông tin chung */
+.rightColumn {
+  width: 340px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Base Card Style */
+.card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Card 1: Header / Top Banner --- */
+.jobHeaderCard {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 24px 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.jobTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #212f3f;
+  margin: 0 0 10px 0;
+  line-height: 1.4;
+}
+
+.salaryRow {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.salaryText {
+  font-size: 18px;
+  font-weight: 700;
+  color: #00b14f;
+}
+
+.marketSalaryLink {
+  font-size: 13px;
+  color: #666;
+  text-decoration: none;
+}
+
+.marketSalaryLink:hover {
+  text-decoration: underline;
+}
+
+/* 3 Meta Block: Địa điểm, Kinh nghiệm, Hạn ứng tuyển */
+.metaGrid {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-right: 20px;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.iconCircle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #e6f7ef;
+  color: #00b14f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.metaContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.metaLabel {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 2px;
+}
+
+.metaValue {
+  font-size: 14px;
+  font-weight: 600;
+  color: #212f3f;
+}
+
+/* Action Buttons */
+.actionRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btnApply {
+  flex: 1;
+  background-color: #00b14f;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.2s;
+}
+
+.btnApply:hover {
+  background-color: #009843;
+}
+
+.btnSave {
+  background-color: #ffffff;
+  color: #00b14f;
+  border: 1px solid #00b14f;
+  border-radius: 20px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.2s;
+}
+
+.btnSave:hover {
+  background-color: #f0faf5;
+}
+
+/* --- Section Content Headers --- */
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.sectionTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #212f3f;
+  position: relative;
+  padding-left: 12px;
+  margin: 0;
+}
+
+.sectionTitle::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 3px;
+  bottom: 3px;
+  width: 4px;
+  background-color: #00b14f;
+  border-radius: 2px;
+}
+
+.notifyLink {
+  color: #00b14f;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.notifyLink:hover {
+  text-decoration: underline;
+}
+
+/* --- Overview Tags --- */
+.overviewGroup {
+  margin-bottom: 14px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.overviewLabel {
+  width: 100px;
+  font-size: 13px;
+  color: #666;
+  padding-top: 4px;
+  flex-shrink: 0;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  background-color: #f4f5f7;
+  color: #333;
+  font-size: 13px;
+  padding: 4px 12px;
+  border-radius: 16px;
+  border: 1px solid #e9ebee;
+}
+
+/* Html Dynamic Content Styling */
+.htmlContent {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.htmlContent h3 {
+  display: none; /* Thường đã có sectionTitle ngoài */
+}
+
+.htmlContent ul {
+  padding-left: 20px;
+  margin: 8px 0;
+}
+
+.htmlContent li {
+  margin-bottom: 6px;
+}
+
+/* --- Right Column: Company Card --- */
+.companyCard {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.companyHeader {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  align-items: flex-start;
+}
+
+.companyLogo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  border-radius: 6px;
+  border: 1px solid #f0f0f0;
+  padding: 2px;
+}
+
+.companyName {
+  font-size: 14px;
+  font-weight: 700;
+  color: #212f3f;
+  margin: 0;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+.companyInfoList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: #4d5965;
+}
+
+.companyInfoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.infoIcon {
+  color: #888;
+  font-size: 14px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.btnCompanyPage {
+  display: block;
+  width: 100%;
+  text-align: center;
+  border: 1px solid #00b14f;
+  color: #00b14f;
+  background: #ffffff;
+  padding: 8px 0;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.btnCompanyPage:hover {
+  background-color: #f0faf5;
+}
+
+/* --- Right Column: General Info Card --- */
+.generalInfoList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.generalInfoItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.generalIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #f4f5f7;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
+
+.generalText {
+  display: flex;
+  flex-direction: column;
+}
+
+.generalLabel {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 2px;
+}
+
+.generalValue {
+  font-size: 13px;
+  font-weight: 600;
+  color: #212f3f;
+}
