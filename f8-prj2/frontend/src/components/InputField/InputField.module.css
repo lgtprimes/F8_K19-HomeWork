@@ -1,0 +1,102 @@
+.formGroup {
+    display: flex;
+    gap: 6px;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+
+.labelWrapper, .formGroup > label {
+    color: #263a4d;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .175px;
+    line-height: 22px;
+    margin: 0;
+}
+.labelWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.labelWrapper a {
+    text-decoration: none;
+    color: var(--success);
+}
+
+.labelWrapper a:hover {
+    text-decoration: underline;
+}
+
+
+.inputGroup {
+    display: flex;
+    width: 100%;
+    background-color: unset;
+    border-radius: 6px;
+    margin: 0;
+    height: 40px;
+    border: 1px solid #dfdfdf;
+}   
+
+input:-webkit-autofill {
+  box-shadow: 0 0 0px 1000px #fff inset; /* ép background trắng */
+  -webkit-text-fill-color: #000; /* màu chữ */
+  border-radius: 6px; /* giữ bo góc */
+}
+
+/* Firefox */
+input:-moz-autofill {
+  box-shadow: 0 0 0px 1000px #fff inset;
+  border-radius: 6px;
+}
+
+.formControl {
+    width: 100%;
+    padding: 0 12px;
+    border: none;
+    background: transparent;
+}
+
+.formControl::placeholder {
+    color: #b3b8bd;
+}
+
+.formControl:focus {
+    outline: none;
+}
+
+.inputGroup:focus-within {
+    
+    border-color: var(--success);
+}
+
+.icon {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 6px 12px;
+    width: 45px;
+}
+
+.icon::after {
+    align-items: center;
+    color: #7f878f;
+    content: "\f070";
+    display: flex;
+    font-family: Font Awesome\ 6 Free;
+    font-size: 14px;
+    font-weight: 400;
+    justify-content: center;
+    line-height: 20px;
+}
+
+.icon.show::after {
+    content: "\f06e";
+    display: block;
+    font-family: Font Awesome\ 6 Free;
+    color: var(--success);
+}

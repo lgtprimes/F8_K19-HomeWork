@@ -1,0 +1,374 @@
+/* Container & Wrapper */
+.postJobContainer,
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 5rem 1.5rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #334155;
+}
+
+.postJobHeader {
+  margin-bottom: 2rem;
+}
+
+.title,
+.postJobTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.5rem 0;
+  text-align: left;
+}
+
+.postJobSubtitle {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Card & Form Sections */
+.card,
+.formSection,
+.section {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  padding: 1.75rem;
+  margin-bottom: 1.75rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+.jobForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.sectionTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0;
+  border-left: 4px solid #10b981;
+  padding-left: 10px;
+}
+
+/* Grids & Layouts */
+.row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.formGroup {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+/* Labels & Controls */
+.formGroup label,
+.formLabel {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.required {
+  color: #ef4444;
+}
+
+.formInput,
+.formSelect,
+.formGroup input:not([type="checkbox"]),
+.formGroup select,
+.formGroup textarea {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  font-size: 1.3rem;
+  color: #1e293b;
+  background-color: #ffffff;
+  outline: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.formInput:focus,
+.formSelect:focus,
+.formGroup input:not([type="checkbox"]):focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+}
+
+/* ========================================================= */
+/* FIX CHECKBOX STYLE                                        */
+/* ========================================================= */
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  margin: 12px 0;
+  grid-column: 1 / -1;
+}
+
+.checkboxLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  user-select: none;
+  width: auto !important; /* Tránh bị kéo dãn 100% */
+}
+
+.checkboxInput,
+.formGroup input[type="checkbox"] {
+  width: 1.125rem !important;
+  height: 1.125rem !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  accent-color: #10b981;
+  cursor: pointer;
+  flex-shrink: 0;
+  border-radius: 4px;
+}
+
+/* Bỏ toàn bộ viền focus dãn rộng của checkbox */
+.checkboxInput:focus,
+.checkboxInput:focus-visible,
+.formGroup input[type="checkbox"]:focus,
+.formGroup input[type="checkbox"]:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+
+/* Location Rows */
+.locationBlock {
+  background: #fff;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #edf2f7;
+  margin-bottom: 12px;
+}
+
+.locationList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.locationItem {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.locationCity {
+  width: 220px;
+  flex-shrink: 0;
+}
+
+.locationAddress {
+  flex: 1;
+}
+
+/* Rich Text Editor Wrapper */
+.editorGroup {
+  margin-bottom: 1.5rem;
+}
+
+.editorGroup:last-child {
+  margin-bottom: 0;
+}
+
+.editorGroup .formLabel {
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* CKEditor Custom Reset */
+:global(.ck-content strong),
+:global(.ck-content b) {
+  font-weight: 700 !important;
+}
+
+:global(.ck-content i),
+:global(.ck-content em) {
+  font-style: italic !important;
+}
+
+:global(.ck-content ul) {
+  list-style-type: disc !important;
+  padding-left: 20px !important;
+}
+
+:global(.ck-content ol) {
+  list-style-type: decimal !important;
+  padding-left: 20px !important;
+}
+
+/* Alert Messages */
+.alert,
+.alertError,
+.alertDanger {
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.925rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  white-space: pre-line;
+}
+
+.alertSuccess {
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.925rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  background-color: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #047857;
+}
+
+/* Buttons & Actions */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.btnSubmit,
+.btnPrimary {
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  background-color: #059669;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.625rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 2px 4px rgba(5, 150, 105, 0.2);
+}
+
+.btnSubmit:hover:not(:disabled),
+.btnPrimary:hover:not(:disabled) {
+  background-color: #047857;
+}
+
+.btnSubmit:active:not(:disabled),
+.btnPrimary:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.btnSubmit:disabled,
+.btnPrimary:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btnCancel,
+.btnSecondarySm {
+  padding: 0.5rem 1rem;
+  background-color: #f1f5f9;
+  color: #0f172a;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btnCancel:hover,
+.btnSecondarySm:hover {
+  background-color: #e2e8f0;
+}
+
+.btnAdd {
+  background: none;
+  border: none;
+  color: #059669;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btnAdd:hover {
+  text-decoration: underline;
+}
+
+.btnRemove,
+.btnDangerIcon {
+  padding: 0.625rem;
+  background-color: transparent;
+  color: #ef4444;
+  border: 1px solid #fee2e2;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnRemove:hover,
+.btnDangerIcon:hover {
+  background-color: #fef2f2;
+  border-color: #fecaca;
+}
+
+
+.btnSubmitForm {
+  font-size: 1.3rem;
+  padding: 10px 0;
+}
+
+/* Responsive adjust */
+@media (max-width: 640px) {
+  .locationItem {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .locationCity {
+    width: 100%;
+  }
+}

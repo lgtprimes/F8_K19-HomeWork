@@ -1,0 +1,62 @@
+.loginPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.loginPage::after {
+    background-image: url(https://cdn-new.topcv.vn/unsafe/https://static.topcv.vn/v4/image/auth/background-login-form-arrow.png?v=1);
+    background-position: 100%;
+    background-repeat: no-repeat;
+    background-size: 148px auto;
+    content: "";
+    height: 444px;
+    left: 0;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 148px;
+}
+
+.authForm {
+    background-color: #fff;
+    border-radius: 32px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .08);
+    max-width: 96%;
+    padding: 32px;
+    width: 648px;
+}
+
+.container header {
+    display: flex;
+    gap: 6px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 16px;
+    width: 100%;
+}
+
+.headerLink {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo {
+    width: 100px;
+    height: 42px;
+}
+
+.title {
+	color: #263a4d;
+    font-weight: 600;
+    letter-spacing: -.16px;
+    line-height: 24px;
+    margin: 0;
+    padding: 0;
+}
