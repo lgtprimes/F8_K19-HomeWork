@@ -3884,6 +3884,7 @@ LEFT JOIN company c ON c.id = ca.company_id
 GROUP BY p.id, p.name 
 ORDER BY total_companies DESC LIMIT 3;
 
+SELECT * FROM company
 
 -- 3. lấy ra ds công cty mà các địa chỉ của công ty đó (address dưới dạng json_agg bao gồm id-tên tỉnh- tên xã-địa chỉ chi tiết) 
 -- sắp xếp theo các tỉnh có số cty từ nhiều đến ít
