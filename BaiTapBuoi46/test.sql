@@ -1,7 +1,7 @@
 create table if not exists category (
     id	bigserial primary key ,
     category_id	bigint,
-    name	text,
+    name text,
     created_at	timestamptz default now(),
     created_by	bigint,
     modified_at	timestamptz,
@@ -13,7 +13,7 @@ create table if not exists category (
 
 create table if not exists province (
     id	bigserial primary key ,
-    name	text,
+    name text,
     created_at	timestamptz default now(),
     created_by	bigint,
     modified_at	timestamptz,
@@ -24,10 +24,10 @@ create table if not exists province (
     );
 
 create table if not exists ward (
-                                    id	bigserial primary key ,
-                                    province_id bigint,
-                                    name	text,
-                                    created_at	timestamptz default now(),
+    id	bigserial primary key ,
+    province_id bigint,
+    name text,
+    created_at	timestamptz default now(),
     created_by	bigint,
     modified_at	timestamptz,
     modified_by	bigint,
@@ -37,16 +37,16 @@ create table if not exists ward (
     );
 
 create table if not exists company (
-                                       id	bigserial primary key ,
-                                       tax	text,
-                                       name	text,
-                                       name_eng	text,
-                                       description	text,
-                                       email	text,
-                                       phone	text,
-                                       website	text,
-                                       rate	int,
-                                       created_at	timestamptz default now(),
+    id	bigserial primary key ,
+    tax	text,
+    name text,
+    name_eng text,
+    description	text,
+    email text,
+    phone text,
+    website text,
+    rate	int,
+    created_at	timestamptz default now(),
     created_by	bigint,
     modified_at	timestamptz,
     modified_by	bigint,
@@ -56,12 +56,12 @@ create table if not exists company (
     );
 
 create table if not exists company_address (
-                                               id	bigserial primary key ,
-                                               company_id	bigint,
-                                               province_id	int,
-                                               ward_id	int,
-                                               address_detail	text,
-                                               created_at	timestamptz default now(),
+    id	bigserial primary key ,
+    company_id	bigint,
+    province_id	int,
+    ward_id	int,
+    address_detail text,
+    created_at	timestamptz default now(),
     created_by	bigint,
     modified_at	timestamptz,
     modified_by	bigint,
@@ -71,15 +71,15 @@ create table if not exists company_address (
     );
 
 create table if not exists candidate (
-                                         id	bigserial primary key ,
-                                         name	text,
-                                         phone	text,
-                                         email	text,
-                                         gender	text,
-                                         province_id	bigint,
-                                         ward_id	bigint,
-                                         address_detail	text,
-                                         created_at	timestamptz default now(),
+    id	bigserial primary key ,
+    name text,
+    phone text,
+    email text,
+    gender text,
+    province_id	bigint,
+    ward_id	bigint,
+    address_detail text,
+    created_at	timestamptz default now(),
     created_by	bigint,
     modified_at	timestamptz,
     modified_by	bigint,
@@ -89,12 +89,12 @@ create table if not exists candidate (
     );
 
 create table if not exists cv (
-                                  id	bigserial primary key ,
-                                  candidate_id	bigint,
-                                  title 	text,
-                                  file_name	text,
-                                  file_key	text,
-                                  created_at	timestamptz default now(),
+    id	bigserial primary key ,
+    candidate_id	bigint,
+    title  text,
+    file_name text,
+    file_key text,
+    created_at	timestamptz default now(),
     created_by	bigint,
     modified_at	timestamptz,
     modified_by	bigint,
@@ -104,22 +104,22 @@ create table if not exists cv (
     );
 
 create table if not exists job (
-                                   id	bigserial primary key ,
-                                   category_id	bigint,
-                                   company_id	bigint,
-                                   title	text,
-                                   description	text,
-                                   requirement	text,
-                                   benefit	text,
-                                   experience	int,
-                                   due_date	date,
-                                   quantity	int,
-                                   min_salary	int,
-                                   max_salary	int,
-                                   qualification	text,
-                                   work_type	text,
-                                   working_time	text,
-                                   created_at	timestamptz default now(),
+    id	bigserial primary key ,
+    category_id	bigint,
+    company_id	bigint,
+    title text,
+    description text,
+    requirement text,
+    benefit text,
+    experience	int,
+    due_date	date,
+    quantity	int,
+    min_salary	int,
+    max_salary	int,
+    qualification text,
+    work_type text,
+    working_time text,
+    created_at	timestamptz default now(),
     created_by	bigint,
     modified_at	timestamptz,
     modified_by	bigint,
@@ -129,13 +129,13 @@ create table if not exists job (
     );
 
 create table if not exists job_application (
-                                               id	bigserial primary key ,
-                                               job_id	bigint,
-                                               candidate_id	bigint,
-                                               cv_id	bigint,
-                                               description	text,
-                                               status	text,
-                                               created_at	timestamptz default now(),
+    id	bigserial primary key ,
+    job_id	bigint,
+    candidate_id	bigint,
+    cv_id	bigint,
+    description text,
+    status text,
+    created_at	timestamptz default now(),
     created_by	bigint,
     modified_at	timestamptz,
     modified_by	bigint,
@@ -3830,70 +3830,94 @@ from province
 where province.active and company_address.active
 group by province.id, province.name;
 
+SELECT 
+    c.id,
+    c.tax,
+    c.name,
+    c.email,
+    c.phone,
+    -- Dùng COALESCE để nếu công ty chưa có job nào thì trả về mảng rỗng [] thay vì NULL
+    COALESCE(
+        json_agg(
+            json_build_object(
+                'id', j.id,
+                'title', j.title,
+                'min_salary', j.min_salary,
+                'max_salary', j.max_salary,
+                'work_type', j.work_type,
+                'due_date', j.due_date
+            )
+        ) FILTER (WHERE j.id IS NOT NULL), 
+        '[]'::json
+    ) AS jobs
+FROM company c
+LEFT JOIN job j ON j.company_id = c.id AND j.active
+WHERE c.active
+GROUP BY c.id, c.tax, c.name, c.email, c.phone;
 
 
-DO $$
-DECLARE
-n_job   int;
-    n_cand  int;
-    batch   int := 100000;
-    b       int;
-BEGIN
-SELECT count(*) INTO n_job  FROM job_pick;
-SELECT count(*) INTO n_cand FROM cand_pick;
 
-IF n_job = 0 THEN
-        RAISE EXCEPTION 'Bảng job đang trống';
-END IF;
+-- BÀI TẬP BUỔI 46 - 47 -----------------
+-- 1. lấy ra danh sách công ty và các job của công ty đó (jobs là dạng json_agg)
+SELECT c.id, c.name,
+        COALESCE(
+            JSON_AGG(
+                JSON_BUILD_OBJECT('id', j.id, 'title', j.title, 'min_salary', j.min_salary)
+            ) FILTER (WHERE j.id IS NOT NULL), '[]'::json 
+        ) AS jobs
 
-FOR b IN 0 .. ((n_cand - 1) / batch) LOOP
+FROM company c LEFT JOIN job j ON j.company_id = c.id WHERE c.deleted_at IS NULL GROUP BY c.id, c.name;
 
-        INSERT INTO job_application (job_id, candidate_id, cv_id, description, status, created_by)
-SELECT
-    jp.job_id,
-    a.candidate_id,
-    a.cvs[1 + floor(random() * array_length(a.cvs, 1))::int],
-    'Tôi muốn ứng tuyển vào vị trí này',
-    (ARRAY['PENDING','REVIEWING','INTERVIEW','ACCEPTED','REJECTED'])
-    [CASE
-                    WHEN random() < 0.40 THEN 1
-                    WHEN random() < 0.65 THEN 2
-                    WHEN random() < 0.80 THEN 3
-                    WHEN random() < 0.90 THEN 4
-                    ELSE 5
-END],
-            1
-        FROM (
-            -- DISTINCT để một candidate không apply trùng cùng một job
-            SELECT DISTINCT d.candidate_id, d.cvs, d.job_rn
-            FROM (
-                SELECT
-                    cd.candidate_id,
-                    cd.cvs,
-                    1 + floor(random() * n_job)::int AS job_rn
-                FROM (
-                    SELECT candidate_id, cvs,
-                           CASE
-                               WHEN r < 0.40 THEN 0                        -- 40% không apply
-                               WHEN r < 0.70 THEN 1                        -- 30% apply 1
-                               WHEN r < 0.85 THEN 2                        -- 15% apply 2
-                               WHEN r < 0.95 THEN 3 + floor(random()*3)::int   -- 10% apply 3-5
-                               ELSE               6 + floor(random()*5)::int   -- 5% apply 6-10
-                           END AS n
-                    FROM (
-                        SELECT candidate_id, cvs, random() AS r
-                        FROM cand_pick
-                        WHERE rn BETWEEN b * batch + 1 AND (b + 1) * batch
-                    ) t
-                ) cd
-                CROSS JOIN LATERAL generate_series(1, cd.n) AS s(i)
-            ) d
-        ) a
-        JOIN job_pick jp ON jp.rn = a.job_rn;
+-- 2. lấy ra 3 tỉnh thành có nhiều công ty trong hệ thống nhất "trong đó cần có companies (json_agg)"
+SELECT 
+    p.id AS province_id, 
+    p.name AS province_name,
+    COUNT(c.id) AS total_companies,
+    COALESCE(
+        JSON_AGG(
+            JSON_BUILD_OBJECT('id', c.id, 'name', c.name)
+        ) FILTER(WHERE c.id IS NOT NULL),  '[]'::json
+    ) AS companies
+FROM province p 
+LEFT JOIN company_address ca ON ca.province_id = p.id
+LEFT JOIN company c ON c.id = ca.company_id 
+GROUP BY p.id, p.name 
+ORDER BY total_companies DESC LIMIT 3;
 
-COMMIT;
-RAISE NOTICE 'Done batch % / %', b + 1, ((n_cand - 1) / batch) + 1;
-END LOOP;
-END $$;
 
-ANALYZE job_application;
+-- 3. lấy ra ds công cty mà các địa chỉ của công ty đó (address dưới dạng json_agg bao gồm id-tên tỉnh- tên xã-địa chỉ chi tiết) 
+-- sắp xếp theo các tỉnh có số cty từ nhiều đến ít
+SELECT 
+    p.id AS province_id,
+    p.name AS province_name,
+    COUNT(DISTINCT c.id) AS total_companies, 
+    COALESCE(
+        JSON_AGG(
+            JSON_BUILD_OBJECT(
+                'company_id', c.id,
+                'company_name', c.name,
+                -- Gom danh sách địa chỉ của riêng công ty này thành mảng JSON
+                'addresses', (
+                    SELECT COALESCE(JSON_AGG(
+                        JSON_BUILD_OBJECT(
+                            'address_id', ca_sub.id,
+                            'province_name', p.name,
+                            'ward_id', ca_sub.ward_id,           
+                            'address_detail', ca_sub.address_detail
+                        )
+                    ), '[]'::json)
+                    FROM company_address ca_sub
+                    WHERE ca_sub.company_id = c.id 
+                      AND ca_sub.province_id = p.id
+                      AND ca_sub.deleted_at IS NULL 
+                )
+            )
+        ) FILTER (WHERE c.id IS NOT NULL), '[]'::json
+    ) AS companies
+FROM province p
+LEFT JOIN company_address ca ON ca.province_id = p.id AND ca.deleted_at IS NULL
+LEFT JOIN company c ON c.id = ca.company_id AND c.deleted_at IS NULL
+WHERE p.deleted_at IS NULL
+GROUP BY p.id, p.name
+ORDER BY total_companies DESC;
+--------------------------------------------------------------------------------------------
